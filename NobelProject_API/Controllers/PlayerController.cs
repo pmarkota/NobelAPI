@@ -48,5 +48,18 @@ namespace NobelProject_API.Controllers
             return Ok(new { player.Id, player.Username });
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<Player> GetPlayer(long id)
+        {
+            var player = _db.Players.Find(id);
+
+            if (player == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(new { player.Id, player.Username });
+        }
+
     }
 }
