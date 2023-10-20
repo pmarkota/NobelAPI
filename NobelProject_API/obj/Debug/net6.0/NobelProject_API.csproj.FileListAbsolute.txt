@@ -53,3 +53,4 @@ H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\refint\Nobel
 H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.pdb
 H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.genruntimeconfig.cache
 H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\ref\NobelProject_API.dll
+H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\BCrypt.Net.dll
