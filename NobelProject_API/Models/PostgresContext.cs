@@ -19,6 +19,8 @@ public partial class PostgresContext : DbContext
 
     public virtual DbSet<GameMove> GameMoves { get; set; }
 
+    public virtual DbSet<Player> Players { get; set; }
+
     public virtual DbSet<PlayerStatistic> PlayerStatistics { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -49,16 +51,35 @@ public partial class PostgresContext : DbContext
             entity.ToTable(tb => tb.HasComment("games table"));
 
             entity.Property(e => e.StartTime).HasDefaultValueSql("now()");
+
+            entity.HasOne(d => d.Player).WithMany(p => p.Games)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("Games_player_id_fkey");
         });
 
         modelBuilder.Entity<GameMove>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("GameMoves_pkey");
+
+            entity.HasOne(d => d.Player).WithMany(p => p.GameMoves)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("GameMoves_player_id_fkey");
+        });
+
+        modelBuilder.Entity<Player>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("Player_pkey");
+
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("now()");
         });
 
         modelBuilder.Entity<PlayerStatistic>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PlayerStatistics_pkey");
+            entity.HasKey(e => e.PlayerId).HasName("PlayerStatistics_pkey");
+
+            entity.Property(e => e.PlayerId).ValueGeneratedOnAdd();
+
+            entity.HasOne(d => d.Player).WithOne(p => p.PlayerStatistic).HasConstraintName("PlayerStatistics_player_id_fkey");
         });
         modelBuilder.HasSequence<int>("seq_schema_version", "graphql").IsCyclic();
 

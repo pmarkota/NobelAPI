@@ -9,8 +9,8 @@ namespace NobelProject_API.Models;
 public partial class PlayerStatistic
 {
     [Key]
-    [Column("id")]
-    public long Id { get; set; }
+    [Column("player_id")]
+    public long PlayerId { get; set; }
 
     [Column("total_games_played")]
     public long? TotalGamesPlayed { get; set; }
@@ -23,4 +23,8 @@ public partial class PlayerStatistic
 
     [Column("ties")]
     public long? Ties { get; set; }
+
+    [ForeignKey("PlayerId")]
+    [InverseProperty("PlayerStatistic")]
+    public virtual Player Player { get; set; } = null!;
 }

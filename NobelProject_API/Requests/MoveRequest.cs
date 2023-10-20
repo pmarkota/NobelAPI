@@ -14,6 +14,12 @@ namespace NobelProject_API.Requests
         public int GameId { get; set; }
 
         /// <summary>
+        /// PlayerID
+        /// </summary>
+        [JsonProperty("playerId")]
+        public long PlayerId { get; set; }
+
+        /// <summary>
         /// Gets or sets the user's move (e.g., "rock," "paper," or "scissors").
         /// </summary>
         [JsonProperty("userMove")]

@@ -23,4 +23,11 @@ public partial class Game
 
     [Column("result", TypeName = "character varying")]
     public string? Result { get; set; }
+
+    [Column("player_id")]
+    public long? PlayerId { get; set; }
+
+    [ForeignKey("PlayerId")]
+    [InverseProperty("Games")]
+    public virtual Player? Player { get; set; }
 }

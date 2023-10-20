@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using NobelProject_API.Logic;
 using NobelProject_API.Models;
 using NobelProject_API.Requests;
@@ -17,17 +16,17 @@ namespace NobelProject_API.Controllers
             _db = db;
         }
 
-        /// <summary>
-        /// Start a new game.
-        /// </summary>
+
         [HttpPost("start")]
-        public ActionResult<Game> StartGame()
+        public ActionResult<Game> StartGame([FromBody] long playerId)
         {
             Game game = new Game();
+            game.PlayerId = playerId;
+
             _db.Games.Add(game);
             _db.SaveChanges();
             var gameId = game.Id;
-            return Ok(new { gameId, message = "Game started." });
+            return Ok(new { gameId, playerId, message = "Game started." });
         }
 
         /// <summary>
@@ -36,18 +35,37 @@ namespace NobelProject_API.Controllers
         [HttpPost("play")]
         public ActionResult<Game> PlayGame([FromBody] MoveRequest moveRequest)
         {
-            string userMove = moveRequest.UserMove;
-            string compterMove = GameLogic.GenerateComputerMove();
-            string result = GameLogic.DetermineGameResult(userMove, compterMove);
-            GameMove gameMove = new GameMove
+            long gameId = moveRequest.GameId;
+            Game game = _db.Games.Find(gameId);
+            if (game == null)
             {
-                GameId = moveRequest.GameId,
-                UserMove = userMove,
-                ComputerMove = compterMove,
-                Result = result
-            };
+                return NotFound(new { message = "Game not found." });
+            }
+            string userMove = moveRequest.UserMove;
+            string computerMove = GameLogic.GenerateComputerMove();
+            string result = GameLogic.DetermineGameResult(userMove, computerMove);
+
+            GameMove gameMove = new GameMove();
+            gameMove.GameId = gameId;
+            gameMove.PlayerId = moveRequest.PlayerId;
+            gameMove.UserMove = userMove;
+            gameMove.ComputerMove = computerMove;
+            gameMove.Result = result;
+
             _db.GameMoves.Add(gameMove);
-            PlayerStatistic playerStatistic = _db.PlayerStatistics.Find((long)1);
+            //Update player statistics
+            var playerStatistic = _db.PlayerStatistics.Find(game.PlayerId);
+            if (playerStatistic == null)
+            {
+                playerStatistic = new PlayerStatistic();
+                playerStatistic.PlayerId = (long)game.PlayerId;
+                playerStatistic.Wins = 0;
+                playerStatistic.Losses = 0;
+                playerStatistic.Ties = 0;
+                playerStatistic.TotalGamesPlayed = 0;
+                _db.PlayerStatistics.Add(playerStatistic);
+                _db.SaveChanges();
+            }
             if (result == "win")
             {
                 playerStatistic.Wins++;
@@ -62,9 +80,9 @@ namespace NobelProject_API.Controllers
             }
             playerStatistic.TotalGamesPlayed++;
             _db.PlayerStatistics.Update(playerStatistic);
-
             _db.SaveChanges();
-            return Ok(new { compterMove, result });
+
+            return Ok(new { gameId, userMove, computerMove, result });
         }
 
         /// <summary>
@@ -97,23 +115,6 @@ namespace NobelProject_API.Controllers
             }
             return Ok(playerStatistic);
         }
-        /// <summary>
-        /// Delete all games and statistics.
-        /// </summary>
-        [HttpDelete("delete")]
-        public IActionResult DeleteAll()
-        {
-            _db.Database.ExecuteSqlRaw("DELETE FROM \"GameMoves\"");
-            _db.Database.ExecuteSqlRaw("DELETE FROM \"Games\"");
-            var playerStatistic = _db.PlayerStatistics.Find((long)1);
-            playerStatistic.Wins = 0;
-            playerStatistic.Losses = 0;
-            playerStatistic.Ties = 0;
-            playerStatistic.TotalGamesPlayed = 0;
-            _db.PlayerStatistics.Update(playerStatistic);
-            _db.SaveChanges();
 
-            return Ok(new { message = "All games and statistics deleted." });
-        }
     }
 }

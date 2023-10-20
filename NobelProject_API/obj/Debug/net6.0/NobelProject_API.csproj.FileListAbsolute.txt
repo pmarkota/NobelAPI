@@ -1,3 +1,10 @@
+H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.csproj.AssemblyReference.cache
+H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.GeneratedMSBuildEditorConfig.editorconfig
+H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.AssemblyInfoInputs.cache
+H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.AssemblyInfo.cs
+H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.csproj.CoreCompileInputs.cache
+H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.MvcApplicationPartsAssemblyInfo.cs
+H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.MvcApplicationPartsAssemblyInfo.cache
 H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\appsettings.Development.json
 H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\appsettings.json
 H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\NobelProject_API.exe
@@ -22,6 +29,7 @@ H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\Microsoft.Ex
 H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
 H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\Microsoft.OpenApi.dll
 H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\Mono.TextTemplating.dll
+H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\Newtonsoft.Json.dll
 H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\Npgsql.dll
 H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -31,13 +39,6 @@ H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\System.CodeD
 H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\System.Text.Json.dll
 H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
-H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.csproj.AssemblyReference.cache
-H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.GeneratedMSBuildEditorConfig.editorconfig
-H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.AssemblyInfoInputs.cache
-H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.AssemblyInfo.cs
-H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.csproj.CoreCompileInputs.cache
-H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.MvcApplicationPartsAssemblyInfo.cs
-H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.MvcApplicationPartsAssemblyInfo.cache
 H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\staticwebassets\msbuild.NobelProject_API.Microsoft.AspNetCore.StaticWebAssets.props
 H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\staticwebassets\msbuild.build.NobelProject_API.props
 H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.NobelProject_API.props
@@ -52,4 +53,3 @@ H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\refint\Nobel
 H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.pdb
 H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\NobelProject_API.genruntimeconfig.cache
 H:\Visual Studio\NobelProject_API\NobelProject_API\obj\Debug\net6.0\ref\NobelProject_API.dll
-H:\Visual Studio\NobelProject_API\NobelProject_API\bin\Debug\net6.0\Newtonsoft.Json.dll
