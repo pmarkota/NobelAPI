@@ -69,7 +69,5 @@ We welcome contributions to enhance this API. Here's how you can get involved:
    - Push your changes to the branch you created: `git push origin feature/your-feature-name`.
 
 5. **Create a pull request to submit your changes:**
-   - Open a pull request (PR) in the original repository. This is the process of requesting that your changes be merged into the main project. 
-
-We appreciate your contributions and look forward to your ideas and enhancements.
+   - Open a pull request (PR) in the original repository. 
 
